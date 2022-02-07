@@ -17,18 +17,18 @@ export default function BeanieDetail() {
       setBeanieBaby(data);
     }
     fetchBeanie();
-  }, []); // note that you'll want the id from the url in the dependency array because you want the useEffect callback to get called every time the url changes 
+  }, [params.id]); // note that you'll want the id from the url in the dependency array because you want the useEffect callback to get called every time the url changes 
 
   function handleBeanieClick() {
     // here's a challenge. How can you link on click to the beanie baby's correct entry in the official beanie baby fan site?
-
+    
   }
 
   return (
     <>
       {/* Feel free to uncomment and use the below code--but you'll need to figure out how to keep it from blowing up on load */}
       
-      {/* <Link to='/'>Home</Link>
+      <Link to='/'>Home</Link>
       <div className='beanie-detail' onClick={handleBeanieClick}>
         <div className='beanie-data'>
           <p>{beanieBaby.animal}</p>
@@ -47,7 +47,7 @@ export default function BeanieDetail() {
           <p>Swing Tag Generation: {beanieBaby.swingTagGeneration}</p>
           <p>Tush Tag Generation: {beanieBaby.tushTagGeneration}</p>
         </div>
-      </div>   */}
+      </div>  
     </>
   );
 }
