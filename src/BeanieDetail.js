@@ -1,18 +1,27 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { getSingleBeanie } from './services/fetch-utils';
 
 export default function BeanieDetail() {
   // you'll need to track the current beanieBaby in state
+  const [beanieBaby, setBeanieBaby] = useState('');
   // you'll need to get the route param using the appropriate react router hook
+  const params = useParams();
 
   useEffect(() => {
     // you'll need to define a fetch function here (then call it below) that gets this page's beanie baby and injects it into state using the correct state handler
+    async function fetchBeanie() {
+      const data = await getSingleBeanie(params.id);
 
+      setBeanieBaby(data);
+    }
+    fetchBeanie();
   }, []); // note that you'll want the id from the url in the dependency array because you want the useEffect callback to get called every time the url changes 
 
   function handleBeanieClick() {
     // here's a challenge. How can you link on click to the beanie baby's correct entry in the official beanie baby fan site?
+
   }
 
   return (
